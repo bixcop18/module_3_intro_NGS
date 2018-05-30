@@ -67,13 +67,7 @@ SAM/BAM files can be sorted in multiple ways, e.g. by location of alignment on t
 ```
 samtools flagstat file.bam
 ```
-does a full pass through the input file to calculate and print statistics such as:
-
-|% reads mapped|
-|--------------|
-|% unmapped reads|
-|% reads properly paired|
-|Other information      |
+does a full pass through the input file to calculate and print statistics such as: %reads mapped, % unmapped reads, % reads properly paired and Other information. <br/>
 
 
 Many tools require a BAM Index file to more efficiently access reads in a BAM file.  
