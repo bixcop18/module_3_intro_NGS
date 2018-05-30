@@ -10,15 +10,14 @@ A single SAM file can store mapped, unmapped, and even QC-failed reads from a se
 
 * SAM tools to explore SAM and BAM files
 
-You can use **samtools**: a free software package for manipulating SAM/BAM files to manipulate your SAM/BAM files and extract different kind of information from them:
-Samtools provide utilities for:
+You can use **samtools**: a free software package for manipulating SAM/BAM files to manipulate your SAM/BAM files and extract different kind of information from them.
+Samtools provide utilities for: <br/>
 
-|Viewing and formatting|
-|----------------------|
-|Extracting statistics |
-|Indexing              |
-|Manipulating SAM/BAM files|
-|Editing               |
+* Viewing and formatting
+* Extracting statistics
+* Indexing 
+* Manipulating SAM/BAM files
+* Editing 
 
 ```
 Usage:  samtools <command> [options]
