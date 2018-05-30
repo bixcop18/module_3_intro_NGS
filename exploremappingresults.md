@@ -1,6 +1,6 @@
 
 
-After mapping the fastq file to the reference genome you will end up with a SAM or BAM alignment file. 
+After mapping the fastq file to the reference genome you will end up with a SAM or BAM alignment file. SAM and BAM files contain a lot of different information which can be difficult to understand at first, but knowing how to extract the data you want from these files is essential for a bioinformatician. 
 
 * **SAM format:** 
 SAM stands for Sequence Alignment/Map format.
@@ -48,7 +48,7 @@ samtools view -bS file.sam > file.bam
 ```
 samtools view file.bam > file.sam
 ```
-Use options –h and –H to deal with the header
+Use options –h and –H to deal with the header, this indicates that the header should be put into the SAM file (contains information about the number of chromosomes etc.)
 
 
 
@@ -61,7 +61,8 @@ samtools sort file.bam –o file_sorted.bam
 #converting SAM directly to a sorted BAM file
 samtools view file.sam |samtools sort –o file_sorted.bam
 ```
-SAM/BAM files can be sorted in multiple ways, e.g. by location of alignment on the chromosome, by read name, etc. Note that different alignment tools will output differently sorted SAM/BAM, and you might need differently sorted alignment files as input for different downstream analysis tools.
+SAM/BAM files can be sorted in multiple ways, e.g. by location of alignment on the chromosome, by read name, etc. Note that different alignment tools will output differently sorted SAM/BAM, and you might need differently sorted alignment files as input for different downstream analysis tools.<br/>
+Look at the sizes of the unsorted and sorted BAM files, notice the sorted bam is around ¼ smaller than the unsorted: don’t worry! This is normal, sorting the BAM puts the reads in an order that allows for more efficient compression leading to a smaller output file. 
 * **mapping statistics** 
 
 ```
@@ -87,6 +88,21 @@ samtools view -h -F 4  file.bam > file_only_mapped.sam
 # output back to BAM
 samtools view -h -F 4 –b file.bam > file_only_mapped.bam
 ```
+This leaves you with a BAM file that contains ONLY sequences reads that DID map to the reference genome.
+
+
+* **Extracting unmapped reads from BAM files**
+
+```
+samtools view -h -f 4 -b  file.bam > file_only_unmapped.sam
+# output back to BAM
+samtools view -h -f 4 file.bam > file_only_unmapped.bam
+```
+This leaves you with a BAM file that contains ONLY sequences reads that DID NOT map to the reference genome. <br/>
+
+Note: using –F tells SAMtools view to “skip” sequence alignments with a specific flag (in this case it skips all of the unmapped sequences and only outputs the mapped sequences). Using –f tells SAMtools to “skip” sequence alignments that DON’T match a specific flag 
+
+* **Run flagstat again on these files containing only unmapped and only mapped reads and see what changed**
 
 **Extracting SAM entries mapping to a specific region**
 
@@ -95,10 +111,20 @@ samtools view -h -F 4 –b file.bam > file_only_mapped.bam
 samtools index file.bam 
 ```
 ```
-samtools view file.bam chr1:200000-500000
+samtools view file.bam Chr1:200000-500000 >file_chr1_200k-500k.sam
 #all reads mapping on chr1 as another bam 
 samtools view –b file.bam chr1 > file_chr1.bam
 ```
+You can visualise the content of file_chr1_200k-500k.sam using less, more, etc. or any text editor. This is very useful when you have a small region of interest allowing you to interrogate your region with much smaller files (reducing analysis time!). This analysis requires a sorted BAM file and an index file for the BAM file.
+
+* **Subsample alignments from a BAM file**
+
+ ```
+ samtools view -s 0.5 -b ./file_sorted.bam  > random_half_of_file.bam
+ ```
+
+This selects 50% of the alignments from the BAM file at random. This is useful when you want to know how your alignment might have looked if you did 50% less sequencing, very useful if you are planning future experiments.
+
 
 * **Computing the depth**
 
@@ -125,3 +151,25 @@ Samtools allows computing the read depth per genomic region, as specified in the
 ```
 samtools bedcov options region.bed file.bam
 ```
+
+* **SAMtools fillmd – visualising alignment matches/mismatches**
+```
+samtools view -b file_sorted.bam | samtools fillmd -e - ./yourreference.fasta > file_fillmd.sam
+```
+
+This changes the sequence section of the SAM file to a string of “=” when the alignment was a match while leaving the base code e.g. “A” if there was not a match at that position. Use the “less” command to explore the file_fillmd.sam file. 
+
+* **Extract fastq sequence reads from a BAM file**
+
+```
+samtools fastq file.bam > file_extract.fastq
+```
+
+You can also extract the sequences into R1 and R2 files… check the options for this tool by entering “samtools fastq” into the command line
+
+* **Extract fasta sequence reads from a BAM file**
+
+```
+samtools fasta file_sorted.bam > file_extract_test.fasta
+```
+
