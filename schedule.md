@@ -2,8 +2,8 @@
 
 | Day | Title | Trainer |
 | ------------- | ------------- |------------- |
-| Monday May 28 (AM) | Introduction to HTS/NGS technologies|Ryan Edward|
-| Monday May 28 (PM) | Library preparation and experimental design |Ryan Edward|
+| Monday May 28 (AM) | [Introduction to HTS/NGS technologies](https://drive.google.com/file/d/1KbKsfF7iB-QNRlTVCLOUFMize1fsdYOK/view?usp=sharing)|Ryan Edward|
+| Monday May 28 (PM) | [Library preparation and experimental design] (https://drive.google.com/file/d/1ZmmpuCi5GOB3BaUU4fMt2f2KkuD8AQrY/view?usp=sharing) |Ryan Edward|
 | Tuesday May 29 (AM) | Intro to sequence alignment|Laura Gardiner|
 | Tuesday May 29 (PM) | Quality control, filtering and trimming |Amel Ghouila|
 | Wednesday May 30 (AM) | Mapping reads to a reference genome|Laura Gardiner|
