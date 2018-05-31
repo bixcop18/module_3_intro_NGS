@@ -94,7 +94,7 @@ More information about Trimmomatic [here](http://www.usadellab.org/cms/?page=tri
 * Cutadapt allows to search and remove these adapter sequences from your reads
 
 NGS data sets contain a high number of contaminating adapter sequences. You can also use cutadapt to search and remove these adapters from your reads. All reads that were present in the input file will also be present in the output file, some of them trimmed, some of them not. <br/>
-Command to run cutadapt:
+Command to run cutadapt (replace ADAPTER by the sequence of your adapter)
 ```
 cutadapt -a ADAPTER -o output.fastq input.fastq
 ```
