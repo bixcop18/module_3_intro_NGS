@@ -58,21 +58,28 @@ A basic command to run trimmomatic, PE or SE specifies if your reads are Paired 
 java -jar trimmomatic-XX.jar PE 
 bash java -jar Trimmomatic-XX.jar inputfile outputfile OPTION:VALUE...
 ```
+
 You can use different options and parameters. The selection of trimming steps and their associated parameters are supplied on the command line.
 Examples of parameters:
 
-  **ILLUMINACLIP**: Cut adapter and other illumina-specific sequences from the read.
-  **SLIDINGWINDOW**: Perform a sliding window trimming, cutting once the average quality within the window falls below a threshold.
-  **LEADING**: Cut bases off the start of a read, if below a threshold quality
-  **TRAILING**: Cut bases off the end of a read, if below a threshold quality
-  **CROP**: Cut the read to a specified length
-  **HEADCROP**: Cut the specified number of bases from the start of the read
+  **ILLUMINACLIP**: Cut adapter and other illumina-specific sequences from the read.<br/>
+  **SLIDINGWINDOW**: Perform a sliding window trimming, cutting once the average quality within the window falls below a threshold.<br/>
+  **LEADING**: Cut bases off the start of a read, if below a threshold quality<br/>
+  **TRAILING**: Cut bases off the end of a read, if below a threshold quality<br/>
+  **CROP**: Cut the read to a specified length<br/>
+  **HEADCROP**: Cut the specified number of bases from the start of the read<br/>
   **MINLEN**: Drop the read if it is below a specified length <br/>
   
 Command example
 ```
-java -jar trimmomatic-XX.jar PE seattle0_r1_filter.fastq seattle0_r2_filter.fastq LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+java -jar trimmomatic-XX.jar PE seattle0_r1_filter.fastq seattle0_r2_filter.fastq seattle0_r1_filter_trimmed.fastq seattle0_r1_filter_trimmed_unpaired.fastq seattle0_r2_filter_trimmed.fastq seattle0_r2_filter_trimmed_unpaired.fastq LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
+or 
+```
+module load trimmomatic
+trimmomatic PE seattle0_r1_filter.fastq seattle0_r2_filter.fastq seattle0_r1_filter_trimmed.fastq seattle0_r1_filter_trimmed_unpaired.fastq seattle0_r2_filter_trimmed.fastq seattle0_r2_filter_trimmed_unpaired.fastq  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+```
+
 
 
 
