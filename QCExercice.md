@@ -56,7 +56,7 @@ A basic command to run trimmomatic, PE or SE specifies if your reads are Paired 
 
 ```
 java -jar trimmomatic-XX.jar PE 
-bash java -jar Trimmomatic-XX.jar inputfile outputfile OPTION:VALUE...
+bash java -jar Trimmomatic-XX.jar inputfile_R1 inputfile_R2 outputfile_R1 outputfile_R2 OPTION:VALUE...
 ```
 
 You can use different options and parameters. The selection of trimming steps and their associated parameters are supplied on the command line.
