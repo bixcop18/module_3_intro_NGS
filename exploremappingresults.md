@@ -87,6 +87,11 @@ samtools flagstat file.bam
 Does a full pass through the input file to calculate and print statistics such as: %reads mapped, % unmapped reads, % reads properly paired and Other information. <br/>
 
 
+```
+#Count the total number of alignments
+samtools view file.bam | wc -l
+```
+
 
 
 Many tools require a BAM Index file to more efficiently access reads in a BAM file.  
