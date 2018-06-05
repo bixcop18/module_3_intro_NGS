@@ -9,6 +9,7 @@ cd /home/lgardiner/Jemima/Intro_to_NGS_exercises/Exercise_1/
 module load trimmomatic
 
 #make directory for trimmed reads
+#careful! If this directory already exists then this will error and kill the job...if this is the case you can remove this mkdir command
 mkdir ./reads/SRR3134441/trimmed/
 
 #PE for paired end
