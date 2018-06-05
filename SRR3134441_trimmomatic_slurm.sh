@@ -1,8 +1,8 @@
 #!/bin/bash -e
 #SBATCH -p batch
 #SBATCH -n 4
-#SBATCH -o ./out_2018_06_04_18_15/run_logs/trimmomatic_SRR3134441.%N.%j.out
-#SBATCH -e ./out_2018_06_04_18_15/run_logs/trimmomatic_SRR3134441.%N.%j.err
+#SBATCH -o ./trimmomatic_SRR3134441.%N.%j.out
+#SBATCH -e ./trimmomatic_SRR3134441.%N.%j.err
 
 cd /home/lgardiner/Jemima/Intro_to_NGS_exercises/Exercise_1/
 #automatically loads 0.38
