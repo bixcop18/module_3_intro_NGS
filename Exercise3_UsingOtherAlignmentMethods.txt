@@ -5,9 +5,10 @@ BLAST is a very useful tool for sequence alignment, but other programs may be be
 For example, say we have the assembled genome sequences of multiple varieties of a certain species but only one variety has been annotated with gene models. 
 However, we would like to know where the genes are located in the other genomes. How should we go about finding the positions of these gene models in the genome assemblies of the other varieties?
 
-In this exercise, we will take the genome assemblies from multiple different accessions of Arabidopsis and try using BLAST and gmap to identify to locations of the Col-0 gene models in the other assemblies.
+In this exercise, we will take the genome assemblies from multiple different accessions of Arabidopsis (seattle, chi2, C24 and Bur) and try using BLAST and gmap to identify to locations of the Col-0 gene models in the other assemblies.
 
 1. Download/copy the genome assemblies for the different Arabidopsis accessions
+	- you can copy the files from here /home/lgardiner/Jemima/Intro_to_NGS_exercises/Exercise_3/arabidopsis_accessions/
 
 2. Produce some summary statistics about the genome sequences. 
 		e.g. 	How many chromosomes?
