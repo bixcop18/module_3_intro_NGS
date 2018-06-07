@@ -1,0 +1,24 @@
+Exercise 2: Using BLAST
+
+GW2 is an important gene for controlling grain yield in rice.
+
+1. Find the orthologue(s) of GW2 in Maize and Arabidopsis using the reference files you have already downloaded using BLAST
+
+2. Do Maize and Arabidopsis have any likely paralogues of GW2?
+
+3. Use BLAST find similar sequences to GW2 in the NCBI non-redundant protein database
+
+4. What protein domains does GW2 have?
+
+5. Perform a multiple sequence alignment between GW2 orthologues from at least 8 different species.
+
+6. Which species has the most similar sequence to the rice GW2?
+
+7. Are some areas more conserved than others?
+
+Additional exercises:
+
+Sequences important for regulation of genes can often be found in the promoters of genes.
+8. Extract the promoter region (2kb) upstream of the Maize GW2 orthologue
+		- Hint: BEDtools is useful for extracting sequences from FASTA files
+
